@@ -1,5 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/auth";
+
 const config = {
   apiKey: "AIzaSyDiXehGw6eFjFZc_csiwAuAKCLSaJXmKBI",
   authDomain: "think-piece-live-f7b7d.firebaseapp.com",
@@ -18,3 +20,7 @@ const settings = { timestampsInSnapshots: true };
 firestore.settings(settings);
 
 export default firebase;
+export const auth = firebase.auth();
+
+export const provider = new firebase.auth.GoogleAuthProvider();
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
